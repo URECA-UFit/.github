@@ -1,4 +1,4 @@
-[[눈떠보니유플러스개발자]SRS 요구사항 정의서.pdf](https://github.com/user-attachments/files/20699634/SRS.pdf)<div align="center">
+<div align="center">
   <h1>Ufit - 통신성향 파악 및 상품 추천 챗봇</h1>
 </div>
 
