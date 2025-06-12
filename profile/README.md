@@ -1,4 +1,4 @@
-<div align="center">
+[[눈떠보니유플러스개발자]SRS 요구사항 정의서.pdf](https://github.com/user-attachments/files/20699634/SRS.pdf)<div align="center">
   <h1>Ufit - 통신성향 파악 및 상품 추천 챗봇</h1>
 </div>
 
@@ -70,6 +70,23 @@
 <div align="center">
   <img src="./assets/architecture.png" alt="Main" style="border-radius: 10px;"/>
 </div>
+
+---
+
+## 📕 산출물
+
+| **산출물**    | **다운로드 링크**        | 
+|:-----------:|:---------------:|
+| 기획안 | [[눈떠보니유플러스개발자]종합프로젝트_기획안.pdf](https://github.com/user-attachments/files/20699705/_.pdf) |
+| ERD |[[눈떠보니유플러스개발자]ERD.pdf](https://github.com/user-attachments/files/20699608/ERD.pdf)|
+| 요구사항 정의서 (SRS) |[[눈떠보니유플러스개발자]SRS 요구사항 정의서.pdf](https://github.com/user-attachments/files/20699644/SRS.pdf)|
+| IA |[[눈떠보니유플러스개발자]IA.pdf](https://github.com/user-attachments/files/20699660/IA.pdf)|
+| 유스케이스 다이어그램 |[[눈떠보니유플러스개발자]유스케이스다이어그램.pdf](https://github.com/user-attachments/files/20699645/default.pdf)|
+| WBS |[[눈떠보니유플러스개발자]WBS.pdf](https://github.com/user-attachments/files/20699651/WBS.pdf)|
+
+
+
+
 
 ---
 
