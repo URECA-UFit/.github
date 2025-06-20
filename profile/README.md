@@ -58,7 +58,7 @@
 
   **2-1-4. 챗봇 추천 흐름도** <br>
     <div align="center">
-    <img src="./assets/[눈떠보니유플러스개발자]LLM_workflow.png" alt="Main" style="border-radius: 10px;"/>
+    <img src="./assets/LLM_workflow.png" alt="Main" style="border-radius: 10px;"/>
     </div>
 
   <br>
@@ -146,7 +146,7 @@
   - **WBS(Work BreakDown Structure)** 기반 테스크 분배 및 진척 관리
   - 협업 도구: Notion, Google Drive, Slack
   <div>
-    <img src="./assets/[눈떠보니유플러스개발자]WBS.png" alt="Login"  width="600"/>
+    <img src="./assets/WBS.png" alt="Login"  width="600"/>
   </div>
 
   ### 5-2. Git 컨벤션
@@ -256,7 +256,7 @@ RATE_PLAN_ALREADY_DELETED("이미 삭제된 요금제입니다.", HttpStatus.BAD
 ## 6. 주요 기능 및 UI 스크린샷
 ### 6-1. 로그인 | 로그아웃
   <div align="center">
-    <img src="./assets/[눈떠보니유플러스개발자]login.png" alt="Login" style="border-radius: 10px;"/>
+    <img src="./assets/login.png" alt="Login" style="border-radius: 10px;"/>
   </div>
 
   - 기본 정적 유저 Database에 저장
@@ -277,11 +277,11 @@ RATE_PLAN_ALREADY_DELETED("이미 삭제된 요금제입니다.", HttpStatus.BAD
 <table align="center">
   <tr>
     <td width="50%">
-      <img src="./assets/[눈떠보니유플러스개발자]graph.png" alt="Graph"/><br/>
+      <img src="./assets/graph.png" alt="Graph"/><br/>
       <b>요금제 통계 시각화 (그래프)</b>
     </td>
     <td width="50%">
-      <img src="./assets/[눈떠보니유플러스개발자]admin_rateplan.png" alt="Admin Rate Plan"/><br/>
+      <img src="./assets/admin_rateplan.png" alt="Admin Rate Plan"/><br/>
       <b>요금제 등록/삭제 관리 화면</b>
     </td>
   </tr>
