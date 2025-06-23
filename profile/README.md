@@ -43,7 +43,7 @@
   
   <br>
 
-  ### 📍 2-1-1. 시스템 아키텍쳐
+  ### 2-1-1. 시스템 아키텍쳐
   <br>
   <table align="center">
   <tr>
@@ -56,11 +56,10 @@
     <td width="50%">
       <img src="./assets/architecture_flow.png" alt="dailyscrum" style="border-radius:5px;"/>
       <br/>
-      <b>시스템 아키텍쳐 내 데이터 Flow</b>
+      <b>시스템 아키텍쳐 내 Data Flow</b>
     </td>
   </tr>
 </table>
-  📍 설명 추가 예정
 
   - 클라이언트(Vue)는 API 게이트웨이처럼 Spring 서버에 요청을 보내고, 챗봇 관련 요청은 FastAPI 서버로 프록시 전달된다.
   - 요금제 데이터는 MongoDB / PostgreSQL 등 이중 구조로 저장되며, 벡터 검색용 임베딩은 pgvector 또는 Redis에 캐싱 처리된다.
@@ -106,7 +105,7 @@
   ### 📍 2-1-4. 챗봇 추천 흐름도
   <br>
     <div align="center">
-    <img src="./assets/llm_workflow.drawio.png" alt="Main" style="border-radius: 10px;"/>
+    <img src="./assets/llm_workflow.drawio.png" alt="llm_workflow" width="60%" style="border-radius: 10px;"/>
     </div>
   <br>
 
@@ -118,11 +117,11 @@
     <td width="60%">
       <div>
       <img src="./assets/service_sequence.png" alt="sequence1" style="border-radius:5px;"/>
-      <b>시퀀스 다이어그램</b>
+      <b>요금제 관리 시퀀스 다이어그램</b>
       </div>
     </td>
     <td width="40%">
-      <img src="./assets/chatbot_sequence.png" alt="sequence2" style="border-radius:5px;"/>
+      <img src="./assets/user_sequence.png" alt="sequence2" style="border-radius:5px;"/>
       <br/>
       <b>챗봇 시퀀스 다이어그램</b>
     </td>
@@ -151,7 +150,7 @@
 
 <br>
 
-  ## 📍 2-3. Backend
+  ## 2-3. Backend
 
   |사용 기술 |  |역할|사용 이유|
   |:-----------|:-----------|:---------------|:---------------|
@@ -169,23 +168,23 @@
   |FastAPI| <img src="https://img.shields.io/badge/FastAPI-009688?style=flat&logo=fastapi&logoColor=white"/> | LLM Server | 경량 API 서버로 개발에 용이|
   |Python <br> (ver. 3.11) | <img src="https://img.shields.io/badge/Python-007396?style=flat&logo=python&logoColor=white"/> | 데이터 임베딩, LLM 로직 구현 | 풍부한 NLP 생태계와 다양한 라이브러리 지원 |
   |OpenAI <br> (text-embedding-3-small) | <img src="https://img.shields.io/badge/openai-412991?style=flat&logo=openai&logoColor=white"/> | 임베딩 모델 | ada 모델 대비 뛰어난 성능과 낮은 가격|
-  |Claude <br> (claude-3-haiku-20240307)| <img src="https://img.shields.io/badge/claude-D97757?style=flat&logo=claude&logoColor=white"/>|답변 생성, 대화 내용 요약| 한국어 질의를 잘 판단하고, 자연스러운 한국어 어투로 답변 생성에 강점|
-  |Langchain| <img src="https://img.shields.io/badge/langchain-1C3C3C?style=flat&logo=langchain&logoColor=white"/> |RAG 구성, 금칙어 처리| RAG 파이프라인 구성과 prompte_template을 사용해 프롬포트 체인 구성에 용이 |
+  |Claude <br> (claude-3-haiku-20240307)| <img src="https://img.shields.io/badge/claude-D97757?style=flat&logo=claude&logoColor=white"/>|답변 생성, 대화 내용 요약| 일관된 말투, 요약 결과에 뛰어난 성능 |
+  |Langchain| <img src="https://img.shields.io/badge/langchain-1C3C3C?style=flat&logo=langchain&logoColor=white"/> |RAG 구성, 금칙어 처리| PromptTemplate 및 메시지 관리 편의성 |
   |LangGraph| <img src="https://img.shields.io/badge/langgraph-1C3C3C?style=flat&logo=langgraph&logoColor=white"/> |RAG |  |
 
 <br>
 
-  ## 📍 3-5. DataBase
+  ## 3-5. DataBase
   |사용 기술 (버전) |  | 역할 | 사용 이유 |
   |:-----------|:-----------|:---------------|:---------------|
-  |MongoDB| <img src="https://img.shields.io/badge/MongoDB-47A248?style=flat&logo=mongodb&logoColor=white"/> | 요금제 정보, 챗봇 대화 내용 저장 | 반정형 데이터 저장 용이 |
-  |PostgreSQL <br> (ver. 16)| <img src="https://img.shields.io/badge/postgres-%23316192.svg?style=flat&logo=postgresql&logoColor=white"/> | 유저 관련 정보 저장 |정형 데이터 저장 용이|
+  |MongoDB| <img src="https://img.shields.io/badge/MongoDB-47A248?style=flat&logo=mongodb&logoColor=white"/> | 요금제 정보, 챗봇 대화 내용 저장 | 구조가 다른 요금제 데이터, 챗봇 메시지 등 비정형 데이터 저장 |
+  |PostgreSQL <br> (ver. 16)| <img src="https://img.shields.io/badge/postgres-%23316192.svg?style=flat&logo=postgresql&logoColor=white"/> | 유저 관련 정보 저장 | 정형  데이터(ex. 유저, 채팅방) 저장 + pg vector와의 통합 |
   | pgvector < | <img src="https://img.shields.io/badge/pgvecor-%23316192.svg?style=flat&logo=postgresql&logoColor=white"/> | 텍스트 임베딩 유사도 검색 | OpenAI 임베딩 결과를 벡터로 저장/검색하기에 최적 |
-  | Radis | <img src="https://img.shields.io/badge/Redis-DC382D?style=flat&logo=redis&logoColor=white"/> | 세션 캐싱 및 응답 속도 개선 | 빠른 조회가 필요한 데이터 캐싱에 유용 |
+  | Radis | <img src="https://img.shields.io/badge/Redis-DC382D?style=flat&logo=redis&logoColor=white"/> | 세션 캐싱 및 응답 속도 개선 | 리프레시 토큰, 블랙리스트 토큰 관리 |
 
 <br>
 
- ## 📍 3-6. Infra
+ ## 3-6. Infra
 
 |사용 기술 |  | 역할 | 사용 이유 |
 |:-----------|:-----------|:---------------|:---------------|
@@ -201,20 +200,64 @@
 
 ---
 
-# 📍 4. 성능 / 버그 개선
-  ## 4-1. RAG 에서 발생한 문제
+# 4. 기술적 고민 및 문제해결
+  ## 4-1. 웹소켓 vs. HTTP
+  
+  | 웹소켓 방식 | HTTP 요청 방식 |
+  |:---------|:-------------|
+  |* 양방향 소통 <br> * 실시간 상호작용 | * 단방향 요청 <br> * 간헐적 통신 |
 
-  ## 4-2. LLM 전환
+  본 프로젝트에서는 
+  1. 실시간 채팅이 요구되지 않으며
+  2. 챗봇의 응답이 생성되기 전까지 새로운 질문을 생성할 수 없다는 점에서 <br>
 
-  ## 4-3. 프롬포트 개선
+  **HTTP 요청 방식을 선택했다.**
+  
+  <br>
 
-  <!-- ## 4-4. PI 응답 속도 개선 / 캐싱 전략 -->
+  ## 4-2. RestTemplate vs. WebClient
+  ### 4-2-1. 기존 구조 및 가설
+  기존 구조는 **RestTemplate (동기 + 블로킹) 방식**을 사용하고 있어, FastAPI 서버로부터 응답이 오기 전까지 스레드가 대기하며 다른 HTTP 작업 처리율이 떨어질 것으로 예상했다. <br>
+
+  따라서, **WebClient (비동기 + 논블로킹) 방식**으로 변경하면 FastAPI 서버 응답이 오기 전까지 다른 HTTP 작업을 처리할 수 있어 성능 개선이 될 것으로 예상했다.
+  
+  ### 4-2-2.결과
+  nGrinder를 이용해 요청을 보내고, Grafana와 Prometheus로 처리 속도를 모니터링해 두 가지 방식을 비교해보았다.
+
+  **테스트 조건 및 결과**
+
+  |              | RestTemplate | WebClient |
+  |:-------------|:---------|:---------|
+  | **테스트 조건** | 사용자 99명 <br> (실행 시간 3분) | 사용자 99명 <br> (실행 시간 3분) |
+  | **TPS (평균/피크)** | 평균 8.4 TPS / 피크 29 | 평균 8.5 TPS / 피크 27 |
+  | **평균 응답시간** | 331 ms | 250.87 ms |
+
+<br>
+
+  **정리**
+
+  1. 실제 병목은 SpringBoot가 아닌 **FastAPI** 서버에서 발생했다. <br>
+  따라서, FastAPI 서버를 비동기 로직으로 변경해야 성능이 더 향상될 것으로 기대된다.
+  2. SpringBoot만으로도 평균 응답시간이 **약 24%** 향상 되었다. <br>
+  이를 바탕으로 사용자 수가 수백, 수천명으로 늘어날 경우 더욱 더 큰 성능 향상으로 이어질 것으로 예상된다.
+
+  ## 4-3. Infra 
+  <br>
+  <div align="center">
+  <img src="./assets/infra_tech.png" alt="llm_workflow" style="border-radius: 10px;"/>
+  </div>
+  <br>
+
+
+
+  ## 4-4. LLM 응답 개선 
+
 
 <br>
 
 
-# 📍 5. 협업 전략 및 컨벤션 규칙
-  ## 📍 5-1. 애자일(Agile) 방법론으로 협업 진행
+# 5. 협업 전략 및 컨벤션 규칙
+  ## 5-1. 애자일(Agile) 방법론으로 협업 진행
   본 프로젝트는 **애자일 방법론**을 적용하여 **짧은 반복 개발과 피드백 중심**으로 운영되었다.
 
   - 매일 오전 10시 **스크럼 회의** 진행 
@@ -291,19 +334,19 @@
 
 ### 5-4-1. DTO 및 Mapper 사용
 
-- Entity ↔️ DTO 변환은 XXMapper.toXXX() 방식
+**Entity ↔️ DTO 변환은 XXMapper.toXXX() 방식**
   - Entity는 DTO 둘 다 서로를 알 필요가 없음
 
-- Entity 생성은 생성자와 빌더가 아닌 정적 팩토리 메서드로 수행
+**Entity 생성은 생성자와 빌더가 아닌 정적 팩토리 메서드로 수행**
   - Java 오버로딩 이용
   - 매 객체 생성 시 직접 빌더를 이용하면 휴먼에러 발생 가능성 -> 정적 팩토리 메서드를 통해 일부 방지
 
-- DTO는 record type으로 생성
+**DTO는 record type으로 생성**
   - 모든 필드의 final, Getter, toString() .. 자동 생성 이점
   - 불변성 -> 멀티스레드 환경의 안전성 증가
   - 데이터를 담는 용도인 DTO는 주로 불변성을 갖는 점을 고려
 
--	Controller에서는 DTO만 사용하여 책임 분리 구현
+**Controller에서는 DTO만 사용하여 책임 분리 구현**
 ```
 @Override
 public ResponseEntity<DeleteRatePlanResponse> deleteRatePlan(String ratePlanId) {
@@ -378,12 +421,12 @@ RATE_PLAN_ALREADY_DELETED("이미 삭제된 요금제입니다.", HttpStatus.BAD
 <table align="center">
   <tr>
     <td width="50%">
-      <사진> <br>
+      <img src="./assets/chatbot.png" alt="Chatbot" style="border-radius:5px;"/> <br>
       <b>요금제 추천</b>
     </td>
     <td width="50%">
-      <사진> <br>
-      <b>챗봇 리뷰</b>
+      <img src="./assets/user_review.png" alt="user_review" style="border-radius:5px;"/> <br>
+      <b>사용자의 챗봇 리뷰 작성</b>
     </td>
   </tr>
 </table>
@@ -396,17 +439,6 @@ RATE_PLAN_ALREADY_DELETED("이미 삭제된 요금제입니다.", HttpStatus.BAD
 <br>
 
 ## 6-3. 챗봇의 요금제 추천에 대한 리뷰
-<table align="center">
-  <tr>₩
-    <td width="50%">
-      <사진> <br>
-      <b>채팅 및 요금 추천</b>
-    </td>
-    <td width="50%">
-      <br>
-    </td>
-  </tr>
-</table>
 
  - 요금제 추천 시 사용자에게 추천에 대한 만족도
  - 요금제 추천에 대한 최대 300자 이내의 텍스트 리뷰
@@ -436,10 +468,12 @@ RATE_PLAN_ALREADY_DELETED("이미 삭제된 요금제입니다.", HttpStatus.BAD
 ## 6-5. 관리자의 챗봇 요금제 추천에 대한 리뷰 조회
 <table align="center">
   <tr>
-    <td width="50%">
-      <사진>
-      <br/>
+    <td width="60%">
+      <img src="./assets/chatbot_review_list.png" alt="admin_chatbot_review" style="border-radius:5px;"/> <br>
       <b> 챗봇 리뷰 조회</b>
+    </td>
+    <td width="40%">
+      <br>
     </td>
   </tr>
 </table>
