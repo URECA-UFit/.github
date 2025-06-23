@@ -44,10 +44,22 @@
   <br>
 
   ### 📍 2-1-1. 시스템 아키텍쳐
-  <div align="center">
-    <img src="./assets/new_architecture.png" alt="Main" style="border-radius: 10px;"/>
-  </div>
-
+  <br>
+  <table align="center">
+  <tr>
+    <td width="50%">
+      <div>
+      <img src="./assets/ufit_architecture.png" alt="Login" style="border-radius:5px;"/>
+      <b>시스템 아키텍쳐</b>
+      </div>
+    </td>
+    <td width="50%">
+      <img src="./assets/architecture_flow.png" alt="dailyscrum" style="border-radius:5px;"/>
+      <br/>
+      <b>시스템 아키텍쳐 내 데이터 Flow</b>
+    </td>
+  </tr>
+</table>
   📍 설명 추가 예정
 
   - 클라이언트(Vue)는 API 게이트웨이처럼 Spring 서버에 요청을 보내고, 챗봇 관련 요청은 FastAPI 서버로 프록시 전달된다.
@@ -71,7 +83,21 @@
   ### 📍 2-1-3. DB 구조
    📍 ERD 사진
   <br>
-  RDB, NoSQL 병행 구조 + 병행 이유 추가 예정
+  <table align="center">
+  <tr>
+    <td width="53%">
+      <div>
+      <img src="./assets/RDB.png" alt="Login" style="border-radius:5px;"/>
+      <b>RDB : PostgreSQL</b>
+      </div>
+    </td>
+    <td width="47%">
+      <img src="./assets/Mongo_pg.png" alt="dailyscrum" style="border-radius:5px;"/>
+      <br/>
+      <b>MongoDB</b>
+    </td>
+  </tr>
+</table>
 
   - 요금제 데이터는 MongoDB / PostgreSQL 등 이중 구조로 저장되며, 벡터 검색용 임베딩은 pgvector 또는 Redis에 캐싱 처리된다.
 
@@ -80,14 +106,37 @@
   ### 📍 2-1-4. 챗봇 추천 흐름도
   <br>
     <div align="center">
-    <img src="./assets/LLM_workflow.png" alt="Main" style="border-radius: 10px;"/>
+    <img src="./assets/llm_workflow.drawio.png" alt="Main" style="border-radius: 10px;"/>
     </div>
   <br>
 
-  ### 📍 2-1-5. GitHub Actions, CI/CD 
-  코드 변경 시 자동 빌드 및 테스트 후, Docker 컨테이너를 EC2에 배포하여 CI/CD 파이프라인을 구성한다.
 
 
+  ### 📍 2-1-5. 시퀀스 다이어그램
+  <table align="center">
+  <tr>
+    <td width="60%">
+      <div>
+      <img src="./assets/service_sequence.png" alt="sequence1" style="border-radius:5px;"/>
+      <b>시퀀스 다이어그램</b>
+      </div>
+    </td>
+    <td width="40%">
+      <img src="./assets/chatbot_sequence.png" alt="sequence2" style="border-radius:5px;"/>
+      <br/>
+      <b>챗봇 시퀀스 다이어그램</b>
+    </td>
+  </tr>
+</table>
+
+**요금제 생성/삭제** <br>
+관리자가 요금제 생성/삭제 등을 요청하면 웹 클라이언트는 WAS 역할인 스프링 서버에게 요청을 전달한다. 요청 받은 스프링 서버는 먼저 MongoDB에 데이터를 삽입/삭제하고 요금제 정보 수정 자동 대응화를 위해 VectorDB에도 임베딩 데이터를 업데이트 하도록 구현 되었다.
+
+<br>
+
+**추천 리뷰 생성** <br>
+회원/비회원은 챗봇과 1:1 대화를 통해 요금제를 추천 받은 후 추천 정보에 대한 리뷰를 작성할 수 있다. <br> 
+사용자가 리뷰와 평점을 작성하면 웹 클라이언트와 WAS를 지나 FastAPI 서버까지 요청이 도달하여 추천 리뷰에 대한 사용자 질의를 요약한다. 요약된 정보를 스프링 서버가 응답받고 리뷰 정보와 함께 MongoDB에 저장한다.
   
   <br>
 
@@ -97,8 +146,8 @@
   |:-----------|:-----------|:---------------|:---------------|
   |Vue|<img src="https://img.shields.io/badge/vue.js-4FC08D?style=flat&logo=vue.js&logoColor=white"/> |Frontend 화면 구성 |컴포넌트 사용으로 팀 내 UI 통일 용이|
   |Axios|<img src="https://img.shields.io/badge/Axios-5A29E4?style=flat&logo=Axios&logoColor=white"/> |Frontend Backend 통신 |HTTP 요청/응답을 간단히 처리할 수 있어 API 연동에 용이|
-  |Sweetalert2|<img src="https://img.shields.io/badge/Sweetalert2-06B6D4?style=flat&logo=sweetalert&logoColor=white"/> | CSS 스타일링 | 빠르게 스타일 적용 가능 |
-  |Chat.js|<img src="https://img.shields.io/badge/chart.js-F5788D.svg?style=flat&logo=chart.js&logoColor=white"/> | 요금제 그래프 시각화| 직관적이고 다양한 차트를 쉽게 구현 가능 |
+  |Chart.js|<img src="https://img.shields.io/badge/chart.js-F5788D.svg?style=flat&logo=chart.js&logoColor=white"/> | 요금제 그래프 시각화| 직관적이고 다양한 차트를 쉽게 구현 가능 |
+  |SweetAlert2|<img src="https://img.shields.io/badge/SweetAlert2-5A29E4?style=flat&logo=none&logoColor=white"/> | 사용자 알림 모달 | 사용자에게 직관적인 피드백(확인, 경고, 에러 등)을 전달하기 용이 |
 
 <br>
 
@@ -118,7 +167,7 @@
   |사용 기술  |  | 역할 | 사용 이유 |
   |:-----------|:-----------|:---------------|:---------------|
   |FastAPI| <img src="https://img.shields.io/badge/FastAPI-009688?style=flat&logo=fastapi&logoColor=white"/> | LLM Server | 경량 API 서버로 개발에 용이|
-  |Python (ver. 3.11) | <img src="https://img.shields.io/badge/Python-007396?style=flat&logo=python&logoColor=white"/> | 데이터 임베딩, LLM 로직 구현 | 풍부한 NLP 생태계와 다양한 라이브러리 지원 |
+  |Python <br> (ver. 3.11) | <img src="https://img.shields.io/badge/Python-007396?style=flat&logo=python&logoColor=white"/> | 데이터 임베딩, LLM 로직 구현 | 풍부한 NLP 생태계와 다양한 라이브러리 지원 |
   |OpenAI <br> (text-embedding-3-small) | <img src="https://img.shields.io/badge/openai-412991?style=flat&logo=openai&logoColor=white"/> | 임베딩 모델 | ada 모델 대비 뛰어난 성능과 낮은 가격|
   |Claude <br> (claude-3-haiku-20240307)| <img src="https://img.shields.io/badge/claude-D97757?style=flat&logo=claude&logoColor=white"/>|답변 생성, 대화 내용 요약| 한국어 질의를 잘 판단하고, 자연스러운 한국어 어투로 답변 생성에 강점|
   |Langchain| <img src="https://img.shields.io/badge/langchain-1C3C3C?style=flat&logo=langchain&logoColor=white"/> |RAG 구성, 금칙어 처리| RAG 파이프라인 구성과 prompte_template을 사용해 프롬포트 체인 구성에 용이 |
@@ -130,21 +179,22 @@
   |사용 기술 (버전) |  | 역할 | 사용 이유 |
   |:-----------|:-----------|:---------------|:---------------|
   |MongoDB| <img src="https://img.shields.io/badge/MongoDB-47A248?style=flat&logo=mongodb&logoColor=white"/> | 요금제 정보, 챗봇 대화 내용 저장 | 반정형 데이터 저장 용이 |
-  |PostgreSQL <br> (ver. )| <img src="https://img.shields.io/badge/postgres-%23316192.svg?style=flat&logo=postgresql&logoColor=white"/> | 유저 관련 정보 저장 |정형 데이터 저장 용이|
-  | pgvector | <img src="https://img.shields.io/badge/pgvecor-%23316192.svg?style=flat&logo=postgresql&logoColor=white"/> | 텍스트 임베딩 유사도 검색 | OpenAI 임베딩 결과를 벡터로 저장/검색하기에 최적 |
+  |PostgreSQL <br> (ver. 16)| <img src="https://img.shields.io/badge/postgres-%23316192.svg?style=flat&logo=postgresql&logoColor=white"/> | 유저 관련 정보 저장 |정형 데이터 저장 용이|
+  | pgvector < | <img src="https://img.shields.io/badge/pgvecor-%23316192.svg?style=flat&logo=postgresql&logoColor=white"/> | 텍스트 임베딩 유사도 검색 | OpenAI 임베딩 결과를 벡터로 저장/검색하기에 최적 |
   | Radis | <img src="https://img.shields.io/badge/Redis-DC382D?style=flat&logo=redis&logoColor=white"/> | 세션 캐싱 및 응답 속도 개선 | 빠른 조회가 필요한 데이터 캐싱에 유용 |
 
 <br>
 
  ## 📍 3-6. Infra
 
-  |사용 기술 |  | 역할 | 사용 이유 |
-  |:-----------|:-----------|:---------------|:---------------|
-  |AWS_EC2|  <img src="https://img.shields.io/badge/AWS_EC2-FF9900?style=flat&logo=amazon-ec2&logoColor=white"/> | 서비스 배포 서버 | 안정적인 서비스 운영과 유연한 인프라 확장 |
-  |Docker| <img src="https://img.shields.io/badge/docker-%230db7ed.svg?style=flat&logo=docker&logoColor=white"/> | 컨테이너 환경 | 환경 일관성 유지 및 배포 자동화 |
-  |Cloudflare| <img src="https://img.shields.io/badge/Cloudflare-F38020?style=flat&logo=Cloudflare&logoColor=white"/> | Frontend 배포 | 빠른 CDN 제공 |
-  |github actions|  <img src="https://img.shields.io/badge/github%20actions-%232671E5.svg?style=flat&logo=githubactions&logoColor=white"/> | CI/CD 자동화 | 배포 자동화로 개발 효율성, 생산성 향상 |
-
+|사용 기술 |  | 역할 | 사용 이유 |
+|:-----------|:-----------|:---------------|:---------------|
+|AWS EC2| <img src="https://img.shields.io/badge/AWS EC2-FF9900?style=flat&logo=amazonaws&logoColor=white"/> | 서비스 배포 서버 | 안정적인 서비스 운영과 유연한 인프라 확장 |
+|AWS RDS| <img src="https://img.shields.io/badge/AWS RDS-527FFF?style=flat&logo=amazonaws&logoColor=white"/> | 관계형 DB 호스팅 | 관리형 DB로 백업, 보안, 장애 대응 용이 |
+|AWS LoadBalancer| <img src="https://img.shields.io/badge/AWS LoadBalancer-FF9900?style=flat&logo=amazonaws&logoColor=white"/> | 트래픽 분산 | 서비스 가용성 및 확장성 확보 |
+|Docker| <img src="https://img.shields.io/badge/Docker-0db7ed?style=flat&logo=docker&logoColor=white"/> | 컨테이너 환경 | 환경 일관성 유지 및 배포 자동화 |
+|Cloudflare| <img src="https://img.shields.io/badge/Cloudflare-F38020?style=flat&logo=Cloudflare&logoColor=white"/> | Frontend 배포 | 빠른 CDN 제공 |
+|GitHub Actions| <img src="https://img.shields.io/badge/GitHub Actions-2671E5?style=flat&logo=githubactions&logoColor=white"/> | CI/CD 자동화 | 배포 자동화로 개발 효율성, 생산성 향상 |
 
 
 <br>
@@ -312,7 +362,7 @@ RATE_PLAN_ALREADY_DELETED("이미 삭제된 요금제입니다.", HttpStatus.BAD
 
 <table align="center">
   <tr>
-    <td width="50%">
+    <td width="60%">
       <br/>
     <img src="./assets/login.png" alt="Login" style="border-radius:5px;"/>
       <b>로그인 화면</b>
@@ -347,7 +397,7 @@ RATE_PLAN_ALREADY_DELETED("이미 삭제된 요금제입니다.", HttpStatus.BAD
 
 ## 6-3. 챗봇의 요금제 추천에 대한 리뷰
 <table align="center">
-  <tr>
+  <tr>₩
     <td width="50%">
       <사진> <br>
       <b>채팅 및 요금 추천</b>
@@ -406,8 +456,9 @@ RATE_PLAN_ALREADY_DELETED("이미 삭제된 요금제입니다.", HttpStatus.BAD
 <table>
   <thead>
     <tr>
-      <th>GitHub</th>
+      <th >GitHub</th>
       <th>이름</th>
+      <th>역할</th>
       <th>Backend</th>
       <th>Frontend</th>
       <th>LLM</th>
@@ -415,98 +466,103 @@ RATE_PLAN_ALREADY_DELETED("이미 삭제된 요금제입니다.", HttpStatus.BAD
   </thead>
   <tbody>
     <tr>
-    <td align="center">
-      <a href="https://github.com/dudxo">
-      <img src="https://github.com/dudxo.png"  width="80"/> <br>
-      @dudxo
-      </a>
+      <td align="center">
+        <a href="https://github.com/dudxo">
+          <img src="https://github.com/dudxo.png" width="80"/> <br>@dudxo
+        </a>
       </td>
-      <td><strong>권영태 <br> (팀장) <tb> </strong></td>
-      <td> - 개발 환경 구축<br> - 어드민 요금제 목록 <br> - 챗봇 리뷰 저장</td>
+      <td><strong>권영태</strong></td>
+      <td><strong>팀장 <br> Backend 고도화 리더 </td>
+      <td>- 개발 환경 구축<br>- 어드민 요금제 목록<br>- 챗봇 리뷰 저장</td>
       <td>어드민 요금제 목록 페이지</td>
       <td>리뷰 정보 요약</td>
     </tr>
     <tr>
       <td align="center">
-      <a href="https://github.com/dnjstjt1297">
-      <img src="https://github.com/dnjstjt1297.png" width="80"/><br>
-      @dnjstjt1297
-      </a>
+        <a href="https://github.com/dnjstjt1297">
+          <img src="https://github.com/dnjstjt1297.png" width="80"/> <br>@dnjstjt1297
+        </a>
       </td>
       <td><strong>김원석</strong></td>
+      <td><strong>Backend 보안 관리자</strong></td>
       <td>로그인 API 및 인증/인가</td>
       <td>로그인 페이지</td>
       <td>프롬프트 엔지니어링</td>
     </tr>
     <tr>
       <td align="center">
-      <a href="https://github.com/heejjinkim">
-      <img src="https://github.com/heejjinkim.png" width="80"/><br>
-      @heejjinkim</a></td>
+        <a href="https://github.com/heejjinkim">
+          <img src="https://github.com/heejjinkim.png" width="80"/> <br>@heejjinkim
+        </a>
+      </td>
       <td><strong>김희진</strong></td>
+      <td><strong>서기</strong></td>
       <td>챗봇 메시지 다건 조회 API</td>
-      <td> - 개발 환경 구축 <br> - 챗봇 메시지 페이지</td>
-      <td> - 프롬프트 엔지니어링 <br> - 금칙어 필터링</td>
+      <td>- 개발 환경 구축<br>- 챗봇 메시지 페이지</td>
+      <td>- 프롬프트 엔지니어링<br>- 금칙어 필터링</td>
     </tr>
     <tr>
       <td align="center">
-      <a href="https://github.com/ParkKiJung">
-      <img src="https://github.com/ParkKiJung.png" width="80"/><br>
-      @박기정</td>
+        <a href="https://github.com/ParkKiJung">
+          <img src="https://github.com/ParkKiJung.png" width="80"/> <br>@ParkKiJung
+        </a>
+      </td>
       <td><strong>박기정</strong></td>
+      <td><strong>QA</strong></td>
       <td>사용 기술 스택 정리</td>
       <td>사용 기술 스택 정리</td>
       <td>데이터 전처리</td>
     </tr>
     <tr>
       <td align="center">
-      <a href="https://github.com/LGAIN">
-      <img src="https://github.com/LGAIN.png" width="80"/><br>
-      @LGAIN
-      </a>
+        <a href="https://github.com/LGAIN">
+          <img src="https://github.com/LGAIN.png" width="80"/> <br>@LGAIN
+        </a>
       </td>
       <td><strong>이가인</strong></td>
-      <td> - 어드민 요금제 생성/삭제 <br> - 요금제 가입자 지표 조회 <br> - 챗봇 리뷰 조회 </td>
+      <td><strong>산출물 관리</strong></td>
+      <td>- 어드민 요금제 생성/삭제<br>- 요금제 지표 조회<br>- 챗봇 리뷰 조회</td>
       <td>챗봇 리뷰 어드민 페이지</td>
-      <td> - 개발 환경 구축 <br> - 데이터 전처리</td>
+      <td>- 개발 환경 구축<br>- 데이터 전처리</td>
     </tr>
     <tr>
       <td align="center">
-      <a href="https://github.com/choyunju">
-      <img src="https://github.com/choyunju.png" width="80"/><br>
-      @choyunju
-      </a>
+        <a href="https://github.com/choyunju">
+          <img src="https://github.com/choyunju.png" width="80"/> <br>@choyunju
+        </a>
       </td>
       <td><strong>조윤주</strong></td>
-      <td>금칙어 필터링, 벡터 임베딩(RAG)</td>
+      <td><strong>서기 <br> LLM 고도화 리더</strong></td>
+      <td>금칙어 필터링, 벡터 임베딩</td>
       <td>어드민 요금제 관리 페이지</td>
       <td>금칙어 필터링</td>
     </tr>
     <tr>
       <td align="center">
-      <a href="https://github.com/Eric-HAN-01"> 
-      <img src="https://github.com/Eric-HAN-01.png" width="80"/> <br>
-      @Eric-HAN-01</a></td>
+        <a href="https://github.com/Eric-HAN-01">
+          <img src="https://github.com/Eric-HAN-01.png" width="80"/> <br>@Eric-HAN-01
+        </a>
+      </td>
       <td><strong>한현우</strong></td>
+      <td><strong>스크럼 마스터</strong></td>
       <td>요금제 목록 및 상세 API</td>
       <td>요금제 상세 페이지</td>
       <td>데이터 전처리</td>
     </tr>
     <tr>
       <td align="center">
-      <a href="https://github.com/ghkdwldus0807">
-      <img src="https://github.com/ghkdwldus0807.png" width="80"/><br>
-      @ghkdwldus0807</td>
-      </a>
+        <a href="https://github.com/ghkdwldus0807">
+          <img src="https://github.com/ghkdwldus0807.png" width="80"/> <br>@ghkdwldus0807
+        </a>
+      </td>
       <td><strong>황지연</strong></td>
-      <td> - 챗봇 채팅 메시지 저장 API <br> - backend 배포</td>
-      <td> - 챗봇 리뷰 페이지 <br> - Frontend 배포</td>
-      <td> - 요금제 데이터 수정 대응 <br> - LLM 서버 배포</td>
+      <td><strong>인프라 담당</strong></td>
+      <td>챗봇 메시지 저장 API</td>
+      <td>챗봇 리뷰 페이지</td>
+      <td>요금제 데이터 수정 대응</td>
     </tr>
   </tbody>
 </table>
-<br>
-
 <br>
 
 ---
