@@ -36,7 +36,7 @@
 ---
 
 # 2. 기술적 특징
-  ## 📍 2-1. 아키텍쳐
+  ## 2-1. 아키텍쳐
   본 프로젝트는 **Backend API 서버(Spring Boot)** 와 **LLM 서버(FastAPI)** 를 분리하여 구축했다.
   Spring Boot는 사용자 인증, 요금제 CRUD, 리뷰 저장 등 정형 데이터 처리와 보안에 강점이 있는 영역을 담당하고 있으며, FastAPI는 LangChain, text-embedding-3-small, Claude 등 LLM 및 벡터 검색 최적화 라이브러리를 활용하여 챗봇 응답 생성과 프롬프트 체이닝을 담당한다.
   현재 Spring AI는 기능적으로 LangChain 수준의 유연성과 생태계가 부족하다고 판단되어, LLM 파이프라인은 Python 기반으로 설계되었다.
@@ -66,7 +66,7 @@
   -	LLM 서버는 LangChain으로 구성된 RAG 파이프라인을 수행한다.
 
 
-  ### 📍 2-1-2. FastAPI <-> Spring 연동 방식
+  ### 2-1-2. FastAPI <-> Spring 연동 방식
   FastAPI와 Spring은 RestTemplate 기반 비동기 HTTP 통신을 수행한다.
 
   **주요 요청 흐름 - 요금제 삭제**
@@ -79,8 +79,8 @@
   
   
 
-  ### 📍 2-1-3. DB 구조
-   📍 ERD 사진
+  ### 2-1-3. DB 구조
+  ERD 사진
   <br>
   <table align="center">
   <tr>
@@ -102,7 +102,7 @@
 
   <br>
  
-  ### 📍 2-1-4. 챗봇 추천 흐름도
+  ### 2-1-4. 챗봇 추천 흐름도
   <br>
     <div align="center">
     <img src="./assets/llm_workflow.drawio.png" alt="llm_workflow" width="60%" style="border-radius: 10px;"/>
@@ -111,7 +111,7 @@
 
 
 
-  ### 📍 2-1-5. 시퀀스 다이어그램
+  ### 2-1-5. 시퀀스 다이어그램
   <table align="center">
   <tr>
     <td width="60%">
@@ -428,7 +428,7 @@ RATE_PLAN_ALREADY_DELETED("이미 삭제된 요금제입니다.", HttpStatus.BAD
 
 ---
 
-# 📍 6. 주요 기능 및 UI 스크린샷
+# 6. 주요 기능 및 UI 스크린샷
 ## 6-1. 로그인 | 로그아웃
 
 <table align="center">
@@ -453,8 +453,6 @@ RATE_PLAN_ALREADY_DELETED("이미 삭제된 요금제입니다.", HttpStatus.BAD
       <b>요금제 추천</b>
     </td>
     <td width="50%">
-      <img src="./assets/user_review.png" alt="user_review" style="border-radius:5px;"/> <br>
-      <b>사용자의 챗봇 리뷰 작성</b>
     </td>
   </tr>
 </table>
@@ -513,7 +511,7 @@ RATE_PLAN_ALREADY_DELETED("이미 삭제된 요금제입니다.", HttpStatus.BAD
 
 ---
 
-# 📍 7. 팀원 소개
+# 7. 팀원 소개
 
 <table>
   <thead>
