@@ -595,7 +595,7 @@ RATE_PLAN_ALREADY_DELETED("이미 삭제된 요금제입니다.", HttpStatus.BAD
       </td>
       <td><strong>조윤주</strong></td>
       <td><strong>서기 <br> LLM 고도화 리더</strong></td>
-      <td>금칙어 필터링, 벡터 임베딩</td>
+      <td>- 금칙어 필터링 <br> - 벡터 임베딩</td>
       <td>어드민 요금제 관리 페이지</td>
       <td>금칙어 필터링</td>
     </tr>
