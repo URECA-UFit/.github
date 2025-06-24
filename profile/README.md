@@ -530,7 +530,7 @@ RATE_PLAN_ALREADY_DELETED("이미 삭제된 요금제입니다.", HttpStatus.BAD
     <tr>
       <td align="center">
         <a href="https://github.com/dudxo">
-          <img src="https://github.com/dudxo.png" width="80"/> <br>@dudxo
+          <img src="https://github.com/dudxo.png" width="70"/> <br>@dudxo
         </a>
       </td>
       <td><strong>권영태</strong></td>
@@ -542,7 +542,7 @@ RATE_PLAN_ALREADY_DELETED("이미 삭제된 요금제입니다.", HttpStatus.BAD
     <tr>
       <td align="center">
         <a href="https://github.com/dnjstjt1297">
-          <img src="https://github.com/dnjstjt1297.png" width="80"/> <br>@dnjstjt1297
+          <img src="https://github.com/dnjstjt1297.png" width="70"/> <br>@dnjstjt1297
         </a>
       </td>
       <td><strong>김원석</strong></td>
@@ -554,7 +554,7 @@ RATE_PLAN_ALREADY_DELETED("이미 삭제된 요금제입니다.", HttpStatus.BAD
     <tr>
       <td align="center">
         <a href="https://github.com/heejjinkim">
-          <img src="https://github.com/heejjinkim.png" width="80"/> <br>@heejjinkim
+          <img src="https://github.com/heejjinkim.png" width="70"/> <br>@heejjinkim
         </a>
       </td>
       <td><strong>김희진</strong></td>
@@ -566,7 +566,7 @@ RATE_PLAN_ALREADY_DELETED("이미 삭제된 요금제입니다.", HttpStatus.BAD
     <tr>
       <td align="center">
         <a href="https://github.com/ParkKiJung">
-          <img src="https://github.com/ParkKiJung.png" width="80"/> <br>@ParkKiJung
+          <img src="https://github.com/ParkKiJung.png" width="70"/> <br>@ParkKiJung
         </a>
       </td>
       <td><strong>박기정</strong></td>
@@ -578,7 +578,7 @@ RATE_PLAN_ALREADY_DELETED("이미 삭제된 요금제입니다.", HttpStatus.BAD
     <tr>
       <td align="center">
         <a href="https://github.com/LGAIN">
-          <img src="https://github.com/LGAIN.png" width="80"/> <br>@LGAIN
+          <img src="https://github.com/LGAIN.png" width="70"/> <br>@LGAIN
         </a>
       </td>
       <td><strong>이가인</strong></td>
@@ -590,11 +590,11 @@ RATE_PLAN_ALREADY_DELETED("이미 삭제된 요금제입니다.", HttpStatus.BAD
     <tr>
       <td align="center">
         <a href="https://github.com/choyunju">
-          <img src="https://github.com/choyunju.png" width="80"/> <br>@choyunju
+          <img src="https://github.com/choyunju.png" width="70"/> <br>@choyunju
         </a>
       </td>
       <td><strong>조윤주</strong></td>
-      <td><strong>서기 <br> LLM 고도화 리더</strong></td>
+      <td><strong>서기</strong></td>
       <td>- 금칙어 필터링 <br> - 벡터 임베딩</td>
       <td>어드민 요금제 관리 페이지</td>
       <td>금칙어 필터링</td>
@@ -602,7 +602,7 @@ RATE_PLAN_ALREADY_DELETED("이미 삭제된 요금제입니다.", HttpStatus.BAD
     <tr>
       <td align="center">
         <a href="https://github.com/Eric-HAN-01">
-          <img src="https://github.com/Eric-HAN-01.png" width="80"/> <br>@Eric-HAN-01
+          <img src="https://github.com/Eric-HAN-01.png" width="70"/> <br>@Eric-HAN-01
         </a>
       </td>
       <td><strong>한현우</strong></td>
@@ -614,7 +614,7 @@ RATE_PLAN_ALREADY_DELETED("이미 삭제된 요금제입니다.", HttpStatus.BAD
     <tr>
       <td align="center">
         <a href="https://github.com/ghkdwldus0807">
-          <img src="https://github.com/ghkdwldus0807.png" width="80"/> <br>@ghkdwldus0807
+          <img src="https://github.com/ghkdwldus0807.png" width="70"/> <br>@ghkdwldus0807
         </a>
       </td>
       <td><strong>황지연</strong></td>
